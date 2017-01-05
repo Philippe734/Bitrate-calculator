@@ -1,0 +1,85 @@
+Type=Exe
+Form=frmMain.frm
+Form=frmAbout.frm
+Module=modHooKWheelMouse; modHookWheelMouse.bas
+Module=modGlobal; modGlobal.bas
+ResFile32="XPManifest.res"
+IconForm="frmMain"
+Startup="frmMain"
+HelpFile=""
+Title="BitrateCalc"
+ExeName32="BitrateCalc.exe"
+Command32=""
+Name="BitrateCalc"
+HelpContextID="0"
+Description="Bitrate calculator by philippe734"
+CompatibleMode="0"
+MajorVer=1
+MinorVer=0
+RevisionVer=37
+AutoIncrementVer=1
+ServerSupportFiles=0
+VersionComments="Bitrate calculator by philippe734"
+VersionCompanyName="philippe734"
+VersionFileDescription="Bitrate calculator free & open source GNU/GPL"
+VersionLegalCopyright="Free & open source GNU/GPL 2012 (C) philippe734"
+VersionProductName="Bitrate calculator by philippe734"
+CompilationType=0
+OptimizationType=0
+FavorPentiumPro(tm)=0
+CodeViewDebugInfo=0
+NoAliasing=0
+BoundsCheck=0
+OverflowCheck=0
+FlPointCheck=0
+FDIVCheck=0
+UnroundedFP=0
+StartMode=0
+Unattended=0
+Retained=0
+ThreadPerObject=0
+MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1
+
+[TaskList]
+Num=3
+
+[TASK1]
+Status=0
+Priority=1
+Comment=GetRatio = problème avec virgule et point
+
+[TASK2]
+Status=0
+Priority=1
+Comment=CheckW et CheckH = problème infinie loop
+
+[TASK3]
+Status=0
+Priority=1
+Comment=Note virgule et point Convertir un string en numeric : - Si string a point alors utiliser Val () - Si string a une virgule alors utiliser Csng ()
+Description=
+AssignedTo=
+
+[TASK4]
+Status=
+Priority=
+Comment=
+Description=
+AssignedTo=
+
+[TASK5]
+Status=
+Priority=
+Comment=
+Description=
+AssignedTo=
+
+[TASK6]
+Description=
+Status=
+Priority=
+AssignedTo=
+Comment=
