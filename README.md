@@ -5,6 +5,8 @@
 
 Bitrate calculator free and open source GNU/GPL by philippe734.
 
+## Download : [HERE](https://github.com/Philippe734/Bitrate-calculator/raw/master/Windows/BitrateCalc.zip)
+
 Inspired from the bitrate calculator of MeGUI but in a stand alone version. No need MeGUI and no need microsoft framework.
 
 Developped by Philippe734, author of VPN Lifeguard.
