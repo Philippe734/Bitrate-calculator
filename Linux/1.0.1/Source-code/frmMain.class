@@ -1,0 +1,320 @@
+' Gambas class file
+
+' Length of the movie
+Public iLength As Single
+
+' Audio size only (MB)
+Public iAudioSize As Single
+
+' Video size only (MB)
+Public iVideoSize As Single
+
+' Intermediate value Bits/frame
+Public iBitsPerFrame As Single
+
+' 1 mega-byte (Mb) = 8 mega-bits (MB)
+' 8 MB constant =
+Public Const cMB As Long = 8388608 ' = 1024*1024*8
+
+Private bFlag As Boolean
+'
+
+Public Sub CalcBitsPerPixelFrame()
+
+  Dim iBitsPerPixelFrame As Single
+
+  ' Bits/(pixel*frame)
+
+  ' Bits/frame
+  iBitsPerFrame = Eval(txtBitrate.Text) * 1000 / Eval(comboFPS.Text)
+
+  ' Bits/(pixel*frame)
+  iBitsPerPixelFrame = iBitsPerFrame / (spinWidth.Value * spinHeight.Value)
+  txtBPF.Text = IIf(iBitsPerPixelFrame > 0.001, Round(iBitsPerPixelFrame, -3), 0.001)
+
+End Sub
+
+Public Sub cmdQuit_Click()
+
+  Me.Close
+
+End
+
+Public Sub Form_Open()
+
+  comboFPS.add("23.976")
+  comboFPS.add("24.0")
+  comboFPS.add("25.0")
+  comboFPS.add("29.97")
+  comboFPS.add("30.0")
+  comboFPS.add("50.0")
+  comboFPS.add("59.94")
+  comboFPS.add("60.0")
+
+  comboSizePreset.Add("Custom")
+  comboSizePreset.Add("350")
+  comboSizePreset.Add("700 (1 CD)")
+  comboSizePreset.Add("1000")
+  comboSizePreset.Add("1400 (2 CDs)")
+  comboSizePreset.Add("4480 (DVD)")
+  comboSizePreset.Add("23450 (BD)")
+  comboSizePreset.Add("46900 (BD-DL)")
+
+  comboRatio.Add("1.00 (1:1)")
+  comboRatio.Add("1.50 (3:2)")
+  comboRatio.Add("1.33 (4:3)")
+  comboRatio.Add("1.25 (5:4)")
+  comboRatio.Add("0.83 (5:6)")
+  comboRatio.Add("1.22 (11:9)")
+  comboRatio.Add("1.56 (14:9)")
+  comboRatio.Add("1.67 (15:9)")
+  comboRatio.Add("1.78 (16:9)")
+  comboRatio.Add("1.60 (16:10)")
+  comboRatio.Add("1.89 (17:9)")
+  comboRatio.Add("2.33 (2.33:1)")
+  comboRatio.Add("2.21 (2.21:1)")
+  comboRatio.Add("2.35 (2.35:1)")
+  comboRatio.Add("2.40 (2.40:1)")
+
+  comboFPS.Index = 0
+
+  comboSizePreset.Index = 0
+
+  comboRatio.Index = 8
+
+  Calculation
+
+  spinHour.SetFocus
+
+End
+
+Public Sub calc_Click()
+
+  If optBitrate.Value = True Then
+    txtBPF.Enabled = False
+    txtFinalSize.Enabled = False
+    txtBitrate.Enabled = True
+    comboSizePreset.Enabled = False
+    comboSizePreset.Visible = False
+
+  Else If optBPF.Value = True Then
+    txtBPF.Enabled = True
+    txtFinalSize.Enabled = False
+    txtBitrate.Enabled = False
+    comboSizePreset.Enabled = False
+    comboSizePreset.Visible = False
+
+  Else
+    txtBPF.Enabled = False
+    txtFinalSize.Enabled = True
+    txtBitrate.Enabled = False
+    comboSizePreset.Enabled = True
+    comboSizePreset.Visible = True
+
+  Endif
+
+End
+
+Public Sub chkRatio_Click()
+
+  '     If chkRatio.Value = vbChecked Then
+  '         comboRatio.Locked = False
+  '         comboRatio.BackColor = &H80000005
+  '         Call CheckResolution(frmMain.txtWidth, frmMain.txtHeight, True)
+  '         Call Calculation
+  '     Else
+  '         comboRatio.Locked = True
+  '         comboRatio.BackColor = &H8000000F
+  ' End If
+
+End
+
+Public Sub comboFPS_Click()
+
+  Calculation
+
+End
+
+Public Sub comboRatio_Click()
+
+  '   CheckResolution(frmMain.txtWidth, frmMain.txtHeight, True)
+  ' modifier la hauteur en fonction du ratio
+
+  ' puis
+  Calculation
+  spinWidth.SetFocus
+
+End
+
+Public Sub Audio_Change()
+
+  Calculation
+
+End
+
+Public Sub cmdAbout_Click()
+
+  FAbout.Showmodal
+
+End
+
+Public Sub CalcFinalFileSize()
+
+  Dim iFileSize As Single
+
+  ' Video size only (MB)
+  iVideoSize = (Eval(txtBitrate.Text) * iLength * 1000) / cMB
+
+  ' Final file size (MB)
+  iFileSize = iVideoSize + iAudioSize
+  txtFinalSize.Text = IIf(iFileSize > 0, Round(iFileSize, -2), 0.01)
+
+End
+
+Public Sub resolution_Change()
+
+  Calculation
+
+End
+
+Public Sub time_Change()
+
+  Calculation
+
+End
+
+Public Sub comboSizePreset_Click()
+
+  Calculation
+
+End
+
+Public Sub txtBPF_Change()
+
+  Calculation
+
+End
+
+Public Sub txtFinalSize_Change()
+
+  Calculation
+
+End
+
+Public Sub txtBitrate_Change()
+
+  Calculation
+
+End
+
+Public Sub GetRatioSelected(ByRef ret As Single)
+
+  Dim sAspect As String
+  Dim sA As String
+  Dim sB As String
+
+  ' Get the ratio selected from the comboRatio
+
+  sAspect = comboRatio.Text
+
+  IsolateString(sAspect, "(", ":", ByRef sA)
+
+  IsolateString(sAspect, ":", ")", ByRef sB)
+
+  ret = sA / sB
+
+End Sub
+
+Private Sub IsolateString(str As String, sLeft As String, sRigth As String, ByRef ret As String)
+  ' Get string beetween left character and right character
+
+  ret = Mid(str, InStr(str, sLeft) + 1, (InStr(str, sRigth) - InStr(str, sLeft)) - 1)
+
+End Sub
+
+Public Sub GetSizeCombo(ByRef ret As String)
+  ' Extract size value from comboSizePreset
+
+  ret = Mid(comboSizePreset.Text, 1, InStr(comboSizePreset.Text, " ") - 1)
+
+End Sub
+
+Public Sub Calculation()
+
+  Dim k As Byte
+  Dim opt As Byte
+  Dim iFileSize As Single
+  Dim iVideoBitrate As Single
+  Dim iBitsPerPixelFrame As Single
+
+  If bFlag = True Then Return
+  bFlag = True
+
+  ' Length in seconds
+  iLength = spinHour.Value * 3600 + spinMin.Value * 60 + spinSec.Value
+
+  txtTotalFrames.Text = iLength * Round(Eval(comboFPS.Text), 0)
+
+  txtRatio.Text = Round(spinWidth.Value / spinHeight.Value, -2)
+
+  ' Audio size only (MB)
+  iAudioSize = 0
+
+  iAudioSize = iAudioSize + (iLength * spinBitrateAudio1.Value / 8 / 1000) / 1.024 / 1.024
+  txtAudioSize1.Text = Round((iLength * spinBitrateAudio1.Value / 8 / 1000) / 1.024 / 1.024, 1) & " MB"
+
+  iAudioSize = iAudioSize + (iLength * spinBitrateAudio2.Value / 8 / 1000) / 1.024 / 1.024
+  txtAudioSize2.Text = Round((iLength * spinBitrateAudio2.Value / 8 / 1000) / 1.024 / 1.024, 1) & " MB"
+
+  iAudioSize = iAudioSize + (iLength * spinBitrateAudio3.Value / 8 / 1000) / 1.024 / 1.024
+  txtAudioSize3.Text = Round((iLength * spinBitrateAudio3.Value / 8 / 1000) / 1.024 / 1.024, 1) & " MB"
+
+  If optBitrate.Value = True Then     ' from Bitrate
+
+    ' Limit bitrate > 0
+    iVideoBitrate = Eval(txtBitrate.Text)
+    txtBitrate.Text = IIf(iVideoBitrate > 0, Round(iVideoBitrate, 0), 1)
+
+    ' Bits/(pixel*frame)
+    CalcBitsPerPixelFrame
+
+    ' Final file size (MB)
+    CalcFinalFileSize
+
+  Else If optBPF.Value = True Then       ' from Bits/(pixel*frame)
+
+    ' Limit Bits/(pixel*frame) > 0.001
+    iBitsPerPixelFrame = Eval(txtBPF.Text)
+    txtBPF.Text = IIf(iBitsPerPixelFrame > 0.001, Round(iBitsPerPixelFrame, 3), 0.001)
+
+    ' Bits/Frame
+    iBitsPerFrame = iBitsPerPixelFrame * spinWidth.Value * spinHeight.Value
+
+    ' Bitrate video (kbps)
+    iVideoBitrate = iBitsPerFrame * Eval(comboFPS.Text) / 1000
+    txtBitrate.Text = IIf(iVideoBitrate > 0, Round(iVideoBitrate, 0), 1)
+
+    ' Final file size (MB)
+    CalcFinalFileSize
+
+  Else If optSize.Value = True Then    ' from Final file size
+
+    ' Limit file size > 0
+    iFileSize = Eval(txtFinalSize.Text)
+    txtFinalSize.Text = IIf(iFileSize > 0, Round(iFileSize, 2), 0.01)
+
+    ' Video size only (MB)
+    iVideoSize = Eval(txtFinalSize.Text) - iAudioSize
+
+    ' Bitrate video (kbps)
+    iVideoBitrate = (iVideoSize * cMB) / (iLength * 1000)
+    txtBitrate.Text = IIf(iVideoBitrate > 0, Round(iVideoBitrate, 0), 1)
+
+    ' Bits/(pixel*frame)
+    CalcBitsPerPixelFrame
+
+  Endif
+
+  bFlag = False
+
+End Sub
