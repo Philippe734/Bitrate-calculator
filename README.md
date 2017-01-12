@@ -1,4 +1,4 @@
-# Bitrate calculator GPL for Windows by Philippe734
+# Bitrate calculator GPL for Windows & Linux by Philippe734
 
 
 ![windows](https://cloud.githubusercontent.com/assets/24923693/21680815/5c759432-d34c-11e6-8aac-fb6b21cb6411.jpg)
