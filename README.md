@@ -1,4 +1,4 @@
-# Bitrate calculator GPL for Windows & Linux by Philippe734
+# Bitrate calculator GPL for Windows & Linux
 
 
 ![windows](https://cloud.githubusercontent.com/assets/24923693/21680815/5c759432-d34c-11e6-8aac-fb6b21cb6411.jpg)
@@ -6,10 +6,16 @@
 
 Bitrate calculator free and open source GNU/GPL by Philippe734.
 
-[![alt text][2]][1]
+## Download
+Portable version for Windows 7, 8, 10 (1 MB) : [![Windows][2]][1]
 
-  [1]: https://github.com/Philippe734/Bitrate-calculator/raw/master/Windows/BitrateCalc.zip
-  [2]: https://cloud.githubusercontent.com/assets/24923693/21723900/7fdda69e-d432-11e6-8ab1-87dd79f36fe5.gif
+  [1]: https://github.com/Philippe734/VPN-Lifeguard/raw/master/Windows/1.4.14/VpnLifeguard.zip
+  [2]: https://cloud.githubusercontent.com/assets/24923693/21724562/26754b04-d435-11e6-9654-779c17c2ebcf.png
+
+Linux Ubuntu/Debian/Mint (2 MB) : [![Linux][2]][3]
+
+  [3]: https://github.com/Philippe734/Bitrate-calculator/raw/master/Linux/BitrateCalculator_1.0.2.deb
+
 
 Stand alone and portable version.
 
