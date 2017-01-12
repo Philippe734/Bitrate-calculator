@@ -1,0 +1,3 @@
+# Bitrate calculator GPL for Linux
+
+in progress...
