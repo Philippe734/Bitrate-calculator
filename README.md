@@ -9,7 +9,7 @@ Bitrate calculator free and open source GNU/GPL by Philippe734.
 ## Download
 Portable version for Windows 7, 8, 10 (1 MB) : [![Windows][2]][1]
 
-  [1]: https://github.com/Philippe734/VPN-Lifeguard/raw/master/Windows/1.4.14/VpnLifeguard.zip
+  [1]: https://github.com/Philippe734/Bitrate-calculator/raw/master/Windows/BitrateCalc.zip
   [2]: https://cloud.githubusercontent.com/assets/24923693/21724562/26754b04-d435-11e6-9654-779c17c2ebcf.png
 
 Linux Ubuntu/Debian/Mint (2 MB) : [![Linux][2]][3]
