@@ -1,0 +1,288 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,92,50)
+  Icon = Picture["Calculator-icon.ico"]
+  Resizable = False
+  { Frame1 Frame
+    MoveScaled(1,1,54,23)
+    Text = ("Video")
+    { spinHour SpinBox time
+      Name = "spinHour"
+      MoveScaled(3,8,6,4)
+      MaxValue = 999
+      Value = 1
+    }
+    { spinMin SpinBox time
+      Name = "spinMin"
+      MoveScaled(10,8,6,4)
+      MaxValue = 59
+      Step = 5
+      Value = 30
+    }
+    { spinSec SpinBox time
+      Name = "spinSec"
+      MoveScaled(17,8,6,4)
+      MaxValue = 59
+      Step = 10
+    }
+    { spinWidth SpinBox
+      MoveScaled(3,17,8,4)
+      MinValue = 8
+      MaxValue = 888888
+      Step = 8
+      Value = 1280
+    }
+    { spinHeight SpinBox
+      MoveScaled(12,17,8,4)
+      MinValue = 8
+      MaxValue = 888888
+      Step = 8
+      Value = 536
+    }
+    { Label1 Label
+      MoveScaled(3,5,7,3)
+      Font = Font["-1"]
+      Text = ("Hours")
+    }
+    { Label2 Label
+      MoveScaled(10,5,7,3)
+      Font = Font["-1"]
+      Text = ("Minutes")
+    }
+    { Label3 Label
+      MoveScaled(17,5,7,3)
+      Font = Font["-1"]
+      Text = ("Seconds")
+    }
+    { Label4 Label
+      MoveScaled(28,5,9,3)
+      Font = Font["-1"]
+      AutoResize = True
+      Text = ("Framerate")
+    }
+    { Label5 Label
+      MoveScaled(42,5,9,3)
+      Font = Font["-1"]
+      AutoResize = True
+      Text = ("Total frames")
+    }
+    { Label6 Label
+      MoveScaled(4,14,6,3)
+      Font = Font["-1"]
+      AutoResize = True
+      Text = ("Width")
+    }
+    { Label7 Label
+      MoveScaled(13,14,6,3)
+      Font = Font["-1"]
+      AutoResize = True
+      Text = ("Height")
+    }
+    { Label8 Label
+      MoveScaled(22,14,4,3)
+      Font = Font["-1"]
+      AutoResize = True
+      Text = ("Ratio")
+    }
+    { txtTotalFrames TextBox
+      MoveScaled(42,8,9,4)
+      Background = Color.Background
+      ReadOnly = True
+    }
+    { txtRatio TextBox
+      MoveScaled(21,17,7,4)
+      Background = Color.Background
+      ReadOnly = True
+    }
+    { comboFPS ComboBox
+      MoveScaled(27,8,11,4)
+      Mouse = Mouse.Pointing
+      ReadOnly = True
+    }
+    { chkRatio CheckBox
+      MoveScaled(31,17,3,4)
+      Mouse = Mouse.Pointing
+      Value = CheckBox.True
+    }
+    { comboRatio ComboBox
+      MoveScaled(34,17,14,4)
+      Mouse = Mouse.Pointing
+      ReadOnly = True
+      Sorted = True
+    }
+    { Label9 Label
+      MoveScaled(32,14,9,3)
+      Font = Font["-1"]
+      AutoResize = True
+      Text = ("Keep ratio")
+    }
+  }
+  { Frame3 Frame
+    MoveScaled(56,1,35,37)
+    Text = ("Calculate from")
+    { optBitrate RadioButton calc
+      Name = "optBitrate"
+      MoveScaled(2,6,16,3)
+      Mouse = Mouse.Pointing
+      Text = ("Video bitrate")
+      Value = True
+    }
+    { optBPF RadioButton calc
+      Name = "optBPF"
+      MoveScaled(2,16,19,3)
+      Mouse = Mouse.Pointing
+      Text = ("Bits/(pixel*frame)")
+    }
+    { optSize RadioButton calc
+      Name = "optSize"
+      MoveScaled(2,26,17,3)
+      Mouse = Mouse.Pointing
+      Text = ("Final file size")
+    }
+    { comboSizePreset ComboBox
+      MoveScaled(18,30,16,4)
+      Visible = False
+      Enabled = False
+      Mouse = Mouse.Pointing
+      ReadOnly = True
+    }
+    { Label10 Label
+      MoveScaled(30.4286,5.8571,5,3)
+      AutoResize = True
+      Text = ("Kbps")
+    }
+    { txtBitrate ValueBox
+      MoveScaled(21,5,9,4)
+      Text = ("1500")
+    }
+    { txtBPF TextBox
+      MoveScaled(21,15,9,4)
+      Enabled = False
+      Alignment = Align.Right
+    }
+    { txtFinalSize ValueBox
+      MoveScaled(21,25,9,4)
+      Enabled = False
+    }
+    { Label11 Label
+      MoveScaled(30.4286,25.8571,4,3)
+      AutoResize = True
+      Text = ("MB")
+    }
+  }
+  { cmdAbout Button
+    MoveScaled(62,45,14,4)
+    Mouse = Mouse.Pointing
+    Text = ("About") & "..."
+  }
+  { cmdQuit Button
+    MoveScaled(77,45,14,4)
+    Mouse = Mouse.Pointing
+    Text = ("Quit")
+  }
+  { Frame2 Frame
+    MoveScaled(1,25,54,24)
+    Text = ("Audio")
+    { spinBitrateAudio1 SpinBox Audio
+      Name = "spinBitrateAudio1"
+      MoveScaled(16,5,7,4)
+      MaxValue = 999
+      Step = 8
+      Value = 256
+    }
+    { spinBitrateAudio2 SpinBox Audio
+      Name = "spinBitrateAudio2"
+      MoveScaled(16,12,7,4)
+      MaxValue = 999
+      Step = 8
+    }
+    { spinBitrateAudio3 SpinBox Audio
+      Name = "spinBitrateAudio3"
+      MoveScaled(16,19,7,4)
+      MaxValue = 999
+      Step = 8
+    }
+    { txtAudioSize1 TextBox
+      MoveScaled(33,5,11,4)
+      Background = Color.Background
+      ReadOnly = True
+    }
+    { txtAudioSize2 TextBox
+      MoveScaled(33,12,11,4)
+      Background = Color.Background
+      ReadOnly = True
+    }
+    { txtAudioSize3 TextBox
+      MoveScaled(33,19,11,4)
+      Background = Color.Background
+      ReadOnly = True
+    }
+    { Bitrate TextLabel
+      MoveScaled(17,3,6,2)
+      Font = Font["-1"]
+      Text = ("Bitrate")
+    }
+    { Bitrate2 TextLabel
+      MoveScaled(17,10,6,2)
+      Font = Font["-1"]
+      Text = ("Bitrate")
+    }
+    { Bitrate3 TextLabel
+      MoveScaled(17,17,6,2)
+      Font = Font["-1"]
+      Text = ("Bitrate")
+    }
+    { Bitrate4 TextLabel
+      MoveScaled(23,6,6,3)
+      Text = ("Kbps")
+    }
+    { Bitrate5 TextLabel
+      MoveScaled(23,13,6,3)
+      Text = ("Kbps")
+    }
+    { Bitrate6 TextLabel
+      MoveScaled(23,20,6,3)
+      Text = ("Kbps")
+    }
+    { Bitrate7 TextLabel
+      MoveScaled(36,3,6,2)
+      Font = Font["-1"]
+      Text = ("Size")
+    }
+    { Bitrate8 TextLabel
+      MoveScaled(36,10,6,2)
+      Font = Font["-1"]
+      Text = ("Size")
+    }
+    { Bitrate9 TextLabel
+      MoveScaled(36,17,6,2)
+      Font = Font["-1"]
+      Text = ("Size")
+    }
+    { Bitrate10 TextLabel
+      MoveScaled(6,6,6,2)
+      Text = ("Track 1")
+    }
+    { Bitrate11 TextLabel
+      MoveScaled(6,13,6,2)
+      Text = ("Track 2")
+    }
+    { Bitrate12 TextLabel
+      MoveScaled(6,20,6,2)
+      Text = ("Track 3")
+    }
+    { Separator1 Separator
+      MoveScaled(5,9,40,2)
+    }
+    { Separator2 Separator
+      MoveScaled(5,16,40,2)
+    }
+  }
+  { Separator3 Separator
+    MoveScaled(53,2,4,46)
+  }
+  { Separator4 Separator
+    MoveScaled(2,24,51,1)
+  }
+}
