@@ -2,6 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,35,37)
+  Icon = Picture["accessories-calculator.png"]
   Resizable = False
   { cmdWebSite Button
     MoveScaled(1,32,16,4)

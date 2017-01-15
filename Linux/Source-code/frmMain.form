@@ -2,7 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,92,50)
-  Icon = Picture["Calculator-icon.ico"]
+  Icon = Picture["accessories-calculator.png"]
   Resizable = False
   { Frame1 Frame
     MoveScaled(1,1,54,23)
@@ -188,20 +188,20 @@
       Name = "spinBitrateAudio1"
       MoveScaled(16,5,7,4)
       MaxValue = 999
-      Step = 8
+      Step = 32
       Value = 256
     }
     { spinBitrateAudio2 SpinBox Audio
       Name = "spinBitrateAudio2"
       MoveScaled(16,12,7,4)
       MaxValue = 999
-      Step = 8
+      Step = 32
     }
     { spinBitrateAudio3 SpinBox Audio
       Name = "spinBitrateAudio3"
       MoveScaled(16,19,7,4)
       MaxValue = 999
-      Step = 8
+      Step = 32
     }
     { txtAudioSize1 TextBox
       MoveScaled(33,5,11,4)

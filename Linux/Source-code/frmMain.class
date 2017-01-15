@@ -186,19 +186,19 @@ End
 
 Public Sub txtBPF_Change()
 
-  Calculation
+  If txtBPF.Enabled Then Calculation
 
 End
 
 Public Sub txtFinalSize_Change()
 
-  Calculation
+  If txtFinalSize.Enabled Then Calculation
 
 End
 
 Public Sub txtBitrate_Change()
 
-  Calculation
+  If txtBitrate.Enabled Then Calculation
 
 End
 
@@ -339,13 +339,16 @@ End
 Public Sub spinWidth_Change()
 
   Dim iRatio As Single
+  Dim iVal As Single
 
   If bResolutionChange = False Then
     bResolutionChange = True
 
+    iVal = RoundValueByEight(spinWidth.Value)
+
     If chkRatio.Value = True Then
       GetRatioSelected(ByRef iRatio)
-      spinHeight.Value = spinWidth.Value / iRatio
+      spinHeight.Value = RoundValueByEight(ival / iRatio)
     Endif
 
     bResolutionChange = False
@@ -357,13 +360,16 @@ End
 Public Sub spinHeight_Change()
 
   Dim iRatio As Single
+  Dim iVal As Single
 
   If bResolutionChange = False Then
     bResolutionChange = True
 
+    iVal = RoundValueByEight(spinHeight.Value)
+
     If chkRatio.Value = True Then
       GetRatioSelected(ByRef iRatio)
-      spinWidth.Value = spinHeight.Value * iRatio
+      spinWidth.Value = RoundValueByEight(iRatio * ival)
     Endif
 
     bResolutionChange = False
@@ -371,3 +377,28 @@ Public Sub spinHeight_Change()
   Calculation
 
 End
+
+Private Function RoundValueByEight(iValue As Single) As Single
+
+  Dim xDown As Single
+  Dim xUp As Single
+
+  ' Check resolution multiple by 8
+
+  xDown = Int(iValue)
+  Do Until (xDown / 8) = Int(xDown / 8)
+    xDown = xDown - 1
+  Loop
+
+  xUp = Int(iValue)
+  Do Until (xUp / 8) = Int(xUp / 8)
+    xUp = xUp + 1
+  Loop
+
+  If (iValue - xDown) < (xUp - iValue) Then
+    Return xDown
+  Else
+    Return xUp
+  End If
+
+End Function
