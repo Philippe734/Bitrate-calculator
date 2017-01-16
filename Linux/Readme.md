@@ -19,5 +19,5 @@ Application written in Visual Basic Gambas.
 
 [![download][2]][1]
 
-  [1]: https://github.com/Philippe734/Bitrate-calculator/raw/master/Linux/BitrateCalculator_1.0.2.deb
+  [1]: https://github.com/Philippe734/Bitrate-calculator/raw/master/Linux/BitrateCalculatorGPL.deb
   [2]: https://cloud.githubusercontent.com/assets/24923693/21723900/7fdda69e-d432-11e6-8ab1-87dd79f36fe5.gif
