@@ -14,7 +14,7 @@ Portable version for Windows 7, 8, 10 (1 MB) : [![Windows][2]][1]
 
 Linux Ubuntu/Debian/Mint (2 MB) : [![Linux][2]][3]
 
-  [3]: https://github.com/Philippe734/Bitrate-calculator/raw/master/Linux/BitrateCalculator_1.0.2.deb
+  [3]: https://github.com/Philippe734/Bitrate-calculator/raw/master/Linux/BitrateCalculatorGPL.deb
 
 ### Install for Linux
 
