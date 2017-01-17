@@ -2,7 +2,7 @@
 
 
 ![windows](https://cloud.githubusercontent.com/assets/24923693/21680815/5c759432-d34c-11e6-8aac-fb6b21cb6411.jpg)
-![linux](https://cloud.githubusercontent.com/assets/24923693/21910755/b8d9427e-d91d-11e6-9b16-438f9374e2a0.png)
+![linux](https://cloud.githubusercontent.com/assets/24923693/22037402/48c31888-dcf7-11e6-89e8-839c03eb1d63.png)
 
 Bitrate calculator free and open source GNU/GPL.
 
