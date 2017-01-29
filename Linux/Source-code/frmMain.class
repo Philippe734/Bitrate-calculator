@@ -14,7 +14,8 @@ Public iBitsPerFrame As Single
 
 ' 1 mega-byte (Mb) = 8 mega-bits (MB)
 ' 8 MB constant =
-Public Const cMB As Long = 8388608 ' = 1024*1024*8
+' Public Const cMB As Long = 8388608 ' = 1024*1024*8 = 8 Mib
+Public Const cMB As Long = 8000000 ' = 1000*1000*8
 
 Static Property Read Forward As Boolean
 
