@@ -1,7 +1,5 @@
 # Bitrate calculator GPL for Windows & Linux
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/philippe734/Bitrate-calculator?display_name=release)
-
 ![windows](https://cloud.githubusercontent.com/assets/24923693/21680815/5c759432-d34c-11e6-8aac-fb6b21cb6411.jpg)
 ![linux](https://cloud.githubusercontent.com/assets/24923693/22037402/48c31888-dcf7-11e6-89e8-839c03eb1d63.png)
 
@@ -15,6 +13,6 @@ Portable version for Windows 7, 8, 10 (1 MB) : [![Windows][2]][1]
 
 Linux Ubuntu/Debian/Mint in AppImage : [![Linux][2]][3]
 
-  [3]: https://github.com/Philippe734/Bitrate-calculator/releases/download/Release/bitrate-calculator-gambas.AppImage
+  [3]: https://github.com/Philippe734/Bitrate-calculator/releases
 
 *Copyright 2012 Philippe734, author of VPN Lifeguard*
