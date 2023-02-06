@@ -14,5 +14,14 @@ Portable version for Windows 7, 8, 10 (1 MB) : [![Windows][2]][1]
 Linux Ubuntu/Debian/Mint in AppImage : [![Linux][2]][3]
 
   [3]: https://github.com/Philippe734/Bitrate-calculator/releases
+  
+How to build from sources ?
+```
+git clone https://github.com/Philippe734/Bitrate-calculator
+cd Bitrate-calculator/Linux/Source-code/
+gbc3 Source-code/ #compilation with Gambas3
+gba3 Source-code/ -o Bitrate-calculator.gambas
+appimage-builder.AppImage --recipe bitratecalculator-appimage.yml #build AppImage
+```
 
 *Copyright 2012 Philippe734, author of VPN Lifeguard*
