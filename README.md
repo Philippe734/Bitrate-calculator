@@ -1,5 +1,6 @@
 # Bitrate calculator GPL for Windows & Linux
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/philippe734/Bitrate-calculator?display_name=release)
 
 ![windows](https://cloud.githubusercontent.com/assets/24923693/21680815/5c759432-d34c-11e6-8aac-fb6b21cb6411.jpg)
 ![linux](https://cloud.githubusercontent.com/assets/24923693/22037402/48c31888-dcf7-11e6-89e8-839c03eb1d63.png)
